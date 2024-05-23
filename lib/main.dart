@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:task2/Views/QuestionsScreen.dart';
+import 'package:task2/Views/ResultsScreen.dart';
 import 'package:task2/Views/StartScreen.dart';
 
 void main() {
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(primarySwatch: Colors.purple),
       debugShowCheckedModeBanner: false,
-      home: QuestionsScreen(),
+      home: StartScreen(),
     );
   }
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:task2/Views/QuestionsScreen.dart';
 
 class StartScreen extends StatelessWidget {
@@ -52,7 +51,8 @@ class StartScreen extends StatelessWidget {
               ),
               ElevatedButton(
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
                       return const QuestionsScreen();
                     }));
                   },

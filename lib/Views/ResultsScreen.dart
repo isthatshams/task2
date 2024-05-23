@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:task2/Data/ResultsData.dart';
+import 'package:task2/Data/usersAnsweresData.dart';
 import 'package:task2/Views/StartScreen.dart';
+import 'package:task2/Data/AnswersData.dart';
 
-class ResultsScreen extends StatelessWidget {
+class ResultsScreen extends StatefulWidget {
   const ResultsScreen({super.key});
-  final answer = 0;
+
+  @override
+  State<ResultsScreen> createState() => _ResultsScreenState();
+}
+
+class _ResultsScreenState extends State<ResultsScreen> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -17,7 +25,7 @@ class ResultsScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text(
-                    "You answered $answer ouf of 6 questions correctly!",
+                    "You answered $correctAnswers ouf of 6 questions correctly!",
                     textAlign: TextAlign.center,
                     style: const TextStyle(
                         color: Colors.white,
@@ -25,73 +33,49 @@ class ResultsScreen extends StatelessWidget {
                         fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 12),
-                  const ListTile(
-                    leading: CircleAvatar(
-                        backgroundColor: Colors.blue,
-                        child: Text("1",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                            ))),
-                    title: Text(
-                      "What are the main components of a Flutter application?",
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                    subtitle: Text(
-                      "Widgets",
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
+                  Expanded(
+                    child: ListView.builder(
+                        itemBuilder: (context, index) {
+                          return ListTile(
+                              leading: CircleAvatar(
+                                  backgroundColor: colorsList[index],
+                                  child: Text("${index + 1}",
+                                      style: const TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 20,
+                                      ))),
+                              title: Text(
+                                questionsList[index],
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                ),
+                              ),
+                              subtitle: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    answeresList[index],
+                                    style: const TextStyle(
+                                      color: Colors.white70,
+                                    ),
+                                  ),
+                                  Text(
+                                    usersAnsweresList[index],
+                                    style: const TextStyle(
+                                      color: Colors.white70,
+                                    ),
+                                  ),
+                                ],
+                              ));
+                        },
+                        itemCount: Results.length),
                   ),
-                  const ListTile(
-                    leading: CircleAvatar(
-                        backgroundColor: Colors.blue,
-                        child: Text("1",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                            ))),
-                    title: Text(
-                      "What are the main components of a Flutter application?",
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                    subtitle: Text(
-                      "Widgets",
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                  const ListTile(
-                    leading: CircleAvatar(
-                        backgroundColor: Colors.blue,
-                        child: Text("1",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                            ))),
-                    title: Text(
-                      "What are the main components of a Flutter application?",
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                    subtitle: Text(
-                      "Widgets",
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 12),
                   ElevatedButton(
                       onPressed: () {
-                        Navigator.push(context,MaterialPageRoute(builder: (context) => StartScreen()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => StartScreen()));
                       },
                       style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(

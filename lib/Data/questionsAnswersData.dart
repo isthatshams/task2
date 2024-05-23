@@ -1,4 +1,6 @@
-import 'package:task2/Models/QuizQuestion.dart';
+import 'package:task2/Views/QuestionsScreen.dart';
+
+import '../Models/QuizQuestion.dart';
 
 int questionCounter = 0;
 final questionsList = [
@@ -58,4 +60,8 @@ final questionsList = [
 
 questionCounterAdder() {
   questionCounter++;
+}
+
+questionCounterReset() {
+  questionCounter = 0;
 }

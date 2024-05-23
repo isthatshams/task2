@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:task2/Data/ResultsData.dart';
 import 'package:task2/Data/questionsAnswersData.dart';
 import 'package:task2/Data/usersAnsweresData.dart';
 import 'package:task2/Views/ResultsScreen.dart';
@@ -43,8 +43,9 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                           child: Center(
                               child: ElevatedButton(
                                   onPressed: () {
-                                    if (questionCounter >= 6) {
-                                      questionCounter = 0;
+                                    if (questionCounter >= 5) {
+                                      questionCounterReset();
+                                      checkResults();
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(
@@ -53,10 +54,11 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                                       );
                                     } else {
                                       setState(() {
-                                        questionCounter++;
-
-                                        add(questionsList[questionCounter]
-                                            .options[index]);
+                                        add(
+                                            questionsList[questionCounter]
+                                                .options[index],
+                                            index);
+                                        questionCounterAdder();
                                       });
                                     }
                                   },
@@ -72,7 +74,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                         ),
                         const SizedBox(
                           height: 12,
-                        )
+                        ),
                       ],
                     );
                   },
