@@ -44,8 +44,12 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                               child: ElevatedButton(
                                   onPressed: () {
                                     if (questionCounter >= 5) {
-                                      questionCounterReset();
+                                      add(
+                                          questionsList[questionCounter]
+                                              .options[index],
+                                          questionCounter);
                                       checkResults();
+                                      questionCounterReset();
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(
@@ -57,7 +61,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                                         add(
                                             questionsList[questionCounter]
                                                 .options[index],
-                                            index);
+                                            questionCounter);
                                         questionCounterAdder();
                                       });
                                     }

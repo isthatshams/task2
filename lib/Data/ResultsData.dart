@@ -17,7 +17,7 @@ checkResults() {
   for (int i = 0; i < usersAnsweresList.length; i++) {
     if (usersAnsweresList[i] == answeresList[i]) {
       Results[i] = 1;
-      colorsList[i] = Colors.green;
+      colorsList[i] = Colors.blue;
       correctAnswers++;
     } else {
       Results[i] = 0;
