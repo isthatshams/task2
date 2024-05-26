@@ -19,7 +19,7 @@ class _ResultsScreenState extends State<ResultsScreen> {
       home: Scaffold(
           backgroundColor: Colors.purple,
           body: Container(
-            margin: EdgeInsets.all(24),
+            margin: const EdgeInsets.all(24),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
@@ -32,7 +32,7 @@ class _ResultsScreenState extends State<ResultsScreen> {
                       fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 12),
-                Expanded(
+                Container(height: 250,
                   child: ListView.builder(
                       itemBuilder: (context, index) {
                         return ListTile(
@@ -74,14 +74,13 @@ class _ResultsScreenState extends State<ResultsScreen> {
                               ],
                             ));
                       },
-                      itemCount: Results.length),
-                ),
+                      itemCount: Results.length),),
                 ElevatedButton(
                     onPressed: () {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => StartScreen()));
+                              builder: (context) => const StartScreen()));
                     },
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(

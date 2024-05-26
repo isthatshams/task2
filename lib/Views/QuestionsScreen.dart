@@ -17,7 +17,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
     return Scaffold(
       backgroundColor: Colors.purple,
       body: Container(
-        margin: EdgeInsets.all(24),
+        margin: const EdgeInsets.all(24),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -35,7 +35,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
               ),
               ListView.builder(
                   shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   itemBuilder: (context, index) {
                     return Column(
                       children: [
@@ -53,7 +53,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                          builder: (context) => ResultsScreen(),
+                                          builder: (context) => const ResultsScreen(),
                                         ),
                                       );
                                     } else {
@@ -69,11 +69,18 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                                   style: ElevatedButton.styleFrom(
                                     backgroundColor: Colors.purple[300],
                                   ),
-                                  child: Text(
-                                    questionsList[questionCounter]
-                                        .options[index],
-                                    style: const TextStyle(
-                                        color: Colors.white, fontSize: 18),
+                                  child: Container(padding: EdgeInsets.all(8),
+                                    child: Row(mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          shuffledList[index],
+                                          style: const TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 18),
+                                        ),
+                                      ],
+                                    ),
                                   ))),
                         ),
                         const SizedBox(

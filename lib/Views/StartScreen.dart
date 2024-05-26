@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task2/Data/questionsAnswersData.dart';
 import 'package:task2/Views/QuestionsScreen.dart';
 
 class StartScreen extends StatelessWidget {
@@ -51,6 +52,7 @@ class StartScreen extends StatelessWidget {
               ),
               ElevatedButton(
                   onPressed: () {
+                    shuffle();
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) {
                       return const QuestionsScreen();

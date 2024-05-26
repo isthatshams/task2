@@ -1,5 +1,3 @@
-import 'package:task2/Views/QuestionsScreen.dart';
-
 import '../Models/QuizQuestion.dart';
 
 int questionCounter = 0;
@@ -64,4 +62,11 @@ questionCounterAdder() {
 
 questionCounterReset() {
   questionCounter = 0;
+}
+
+List<String> shuffledList = [];
+
+shuffle(){
+  shuffledList=List.from(questionsList[questionCounter].options);
+  shuffledList.shuffle();
 }
