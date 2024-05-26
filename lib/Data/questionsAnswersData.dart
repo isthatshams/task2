@@ -64,9 +64,11 @@ questionCounterReset() {
   questionCounter = 0;
 }
 
-List<String> shuffledList = [];
+List shuffledList = [];
 
-shuffle(){
-  shuffledList=List.from(questionsList[questionCounter].options);
-  shuffledList.shuffle();
+shuffleList(){
+  shuffledList=List.from(questionsList);
+  for (var i = 0; i < 6; i++) {
+    shuffledList[i].options.shuffle();
+  }
 }

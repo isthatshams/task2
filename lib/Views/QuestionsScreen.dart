@@ -45,7 +45,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                                   onPressed: () {
                                     if (questionCounter >= 5) {
                                       add(
-                                          questionsList[questionCounter]
+                                          shuffledList[questionCounter]
                                               .options[index],
                                           questionCounter);
                                       checkResults();
@@ -53,7 +53,8 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                          builder: (context) => const ResultsScreen(),
+                                          builder: (context) =>
+                                              const ResultsScreen(),
                                         ),
                                       );
                                     } else {
@@ -69,16 +70,20 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                                   style: ElevatedButton.styleFrom(
                                     backgroundColor: Colors.purple[300],
                                   ),
-                                  child: Container(padding: EdgeInsets.all(8),
-                                    child: Row(mainAxisAlignment: MainAxisAlignment.center,
+                                  child: Container(
+                                    padding: EdgeInsets.all(8),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: [
-                                        Text(
-                                          shuffledList[index],
+                                        Flexible(child: Text(
+                                          shuffledList[questionCounter]
+                                              .options[index],
                                           style: const TextStyle(
                                               color: Colors.white,
                                               fontWeight: FontWeight.bold,
                                               fontSize: 18),
-                                        ),
+                                        ),)
                                       ],
                                     ),
                                   ))),
@@ -89,7 +94,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                       ],
                     );
                   },
-                  itemCount: 4),
+                  itemCount: questionsList[questionCounter].options.length),
             ],
           ),
         ),

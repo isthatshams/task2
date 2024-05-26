@@ -52,7 +52,7 @@ class StartScreen extends StatelessWidget {
               ),
               ElevatedButton(
                   onPressed: () {
-                    shuffle();
+                    shuffleList();
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) {
                       return const QuestionsScreen();
